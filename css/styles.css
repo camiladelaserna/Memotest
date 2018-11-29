@@ -188,6 +188,12 @@ input {
   display: none;
 }
 
+.shadow {
+  -webkit-box-shadow: 3px 3px 3px 3px #ccc;
+  -moz-box-shadow: 3px 3px 3px 3px #ccc;
+  box-shadow: 3px 3px 3px 3px #ccc;
+}
+
 @media (max-width: 600px) {
   .boxHome {
     width: 90%;

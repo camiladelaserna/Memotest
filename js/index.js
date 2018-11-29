@@ -234,6 +234,7 @@ function clickImg() {
   for (i = 0; i < cardsArray.length; i++) {
     if (($(this).attr('id') == cardsArray[i].id) && (clicks <= 1)) {
       $(this).attr('src',`${cardsArray[i].src}`)
+      $(this).addClass("back")
       var card = cardsArray[i]
       turnedCards.push(card)
       clicks++
@@ -243,6 +244,10 @@ function clickImg() {
     } 
   }
 
+  // if ($(this).attr('src','img/tapada.jpg')) {
+  //   $(this).addClass("animated")
+  //   $(this).addClass("flipInY")
+  // }
 
    if (clicks == 2) {
     if(turnedCards[0].src === turnedCards[1].src){
@@ -289,7 +294,7 @@ $('.replay').click(function() {
 // <------------------------------------------------------------------------
 // <---Animations-----------------------------------------------------------
 
-$(".button").on("mouseover", function () {
+$(".button").on("click", function () {
  $(this).addClass("animated")
  $(this).addClass("pulse")
  $(this).addClass("faster")
