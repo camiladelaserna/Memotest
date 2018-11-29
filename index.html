@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Mali:600|Pacifico" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+  <title>Memotest</title>
+</head>
+<body>
+<!-- Home <-----------------------------------------------------------------     -->
+      <section class="boxHome" >
+        <div class="contentHome">
+          <h1>Memotest</h1>
+          <p>Hola!<i class="em em-raised_hand_with_fingers_splayed"></i>Vamos a jugar al memotest
+            <br/>Pero antes de empezar...<br/>Cuál es tu Nombre<i class="em em-question"></i></p>
+          <input type="text" value="" placeholder="Tu nombre" class="input">
+          <p>Con qué dificultad te gustaría jugar?</p>
+            <div class="buttonsBox">
+              <button class="button easy">FACIL</button>
+            </div>
+            <div class="buttonsBox">
+              <button class="button medium">INTERMEDIO</button>
+            </div>
+            <div class="buttonsBox">
+              <button class="button expert">EXPERTO</button>
+            </div>
+              <div class="validation hide">
+                <span>UPSS... El nombre es requerido.</span>
+            </div>
+        </div>
+      </section>
+<!-- ----------------------------------------------------------------------       -->
+<!-- Board <-----------------------------------------------------------------     -->
+<section class="boxBoard hide">
+  <div class="contentBoard">
+    <h1>Memotest</h1>
+     <p>Hola <span class="hi"></span>!<br/>Encontrá todos los pares en menos de <span class="atempts atemptsColor"></span> intentos<br/>Nivel<br/><span class="difficulty"></span></p>
+      <div class="board">
+        <div class="cards">
+          <div class="img">
+            <img src="img/tapada.jpg" alt="" id="1" data-img="">
+          </div>
+          <div class="img">
+            <img src="img/tapada.jpg" alt="" id="2" data-img="">
+          </div>
+          <div class="img">
+            <img src="img/tapada.jpg" alt="" id="3" data-img="">
+          </div>
+          <div class="img">
+            <img src="img/tapada.jpg" alt="" id="4" data-img="">
+          </div>
+          <div class="img">
+            <img src="img/tapada.jpg" alt="" id="5" data-img="">
+          </div>
+          <div class="img">
+            <img src="img/tapada.jpg" alt="" id="6" data-img="">
+          </div>
+          <div class="img">
+            <img src="img/tapada.jpg" alt="" id="7" data-img="4">
+          </div>
+          <div class="img">
+            <img src="img/tapada.jpg" alt="" id="8" data-img="4a">
+          </div>
+          <div class="img">
+            <img src="img/tapada.jpg" alt="" id="9" data-img="5">
+          </div>
+          <div class="img">
+            <img src="img/tapada.jpg" alt="" id="10" data-img="5a">
+          </div>
+          <div class="img">
+            <img src="img/tapada.jpg" alt="" id="11" data-img="6">
+          </div>
+          <div class="img">
+            <img src="img/tapada.jpg" alt="" id="12" data-img="6a">
+          </div>
+        </div>  
+      </div>      
+      <div class="intentsBox">
+        <p>Intentos: <span class="intents atemptsColor"></span></p>
+      </div>
+  </div>
+</section>
+<!-- ----------------------------------------------------------------------       -->
+<!-- Ranking<-----------------------------------------------------------------     -->
+<section class="boxRank hide" >
+  <div class="contentRank">
+    <p>Ganaste con <span class="atemptsWon atemptsColor"></span> intentos! <br/>Ya podes volver a jugar.</p>
+    <div class="buttonsBox">
+      <button class="button replay">VOLVER A JUGAR</button>
+    </div>
+    <div>
+      <div class="rank"><span>NOMBRE</span><span>NIVEL</span><span>INTENTOS</span></div>
+      <div class="rankAppend"></div>
+    </div>
+  </div>
+</section>
+<!-- ----------------------------------------------------------------------       -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

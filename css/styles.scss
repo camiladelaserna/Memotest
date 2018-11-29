@@ -1,0 +1,215 @@
+$Beige: #f9e9e0;
+$Orange: #FF9700;
+$PacificBlue: #38ACD5;
+
+body {
+    margin: 0px;
+    height: 100%; 
+    overflow: hidden;
+    background-image: url("../img/fondo.jpg");
+}
+
+section {
+    width: 100%;
+    height: 100vh;
+}
+
+.opacity {
+    opacity: 0.5;
+}
+
+.boxHome {
+    background-color: $Beige;
+    width: 350px;
+    height: auto;
+    padding-bottom: 2%;
+    margin: 20px auto;
+    border-radius: 20px;
+    border: 12px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        .contentHome {
+            text-align: center;
+            width: 80%;
+            
+        }
+}
+
+.boxRank {
+    background-color: $Beige;
+    width: 300px;
+    height: auto;
+    left: 50%;
+    margin: 20px auto 0 -150px;
+    border-radius: 6px;
+    border: 3px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    .contentRank {
+        text-align: center;
+        width: 80%;
+    }
+    .rank {
+        border: 1px solid black;
+        margin: 2% 1% 6% 1%;
+        width: 100%;
+        font-family: 'Mali', cursive;
+        font-size: 10px;
+        display: flex;
+        // flex-wrap: wrap;
+        justify-content: space-around;
+        margin: 1% 1% 1% 1%;
+            div {
+
+            }
+    }
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    color: $PacificBlue;
+    }
+
+p{
+    font-family: 'Mali', cursive;
+    font-size: 12px;
+}
+
+input {
+    width: 98%;
+    border-style: none;
+    height: 15px;
+    padding-left: 1%;
+    font-family: 'Mali', cursive;
+    color: grey;
+    font-size: 10px;
+}
+
+.inputClick{
+    outline: none;
+    border: 3px solid hotpink;
+    border-radius: 5px;
+}
+
+.validation {
+    background-color: #ffcccc;
+    border-radius: 8px;
+    width: 100%;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span {
+        margin: 4% 1%;
+        color: #ff4d4d;
+    }
+}
+
+.buttonsBox {
+     button {
+        border-style: none;
+        background-color: $Orange;
+        width: 100%;
+        height: 35px;
+        margin: 1% 0 1% 0;
+        border-radius: 8px;
+        color: white;
+    }
+}
+
+.atemptsColor{
+    color: $PacificBlue;
+}
+
+.intentsBox{
+    border-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $Beige;
+    height: 28px;
+    margin: 1% 1% 1% 1%;
+    border: 4px solid $PacificBlue;
+    border-radius: 8px;
+    color: black;
+}
+
+.button:hover { 
+    background-color: #ffb380;
+}
+
+.boxBoard {
+    background-color: $Beige;
+    width: 80%;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 20px;
+    border-radius: 20px;
+    border: 12px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.contentBoard {
+     text-align: center;
+     width: 45%;
+     height: auto;
+    }
+    h1 {
+         margin: 0;
+     }
+    p {
+         margin: 0;
+    }
+
+.board {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+        .img {
+            width: 22%;
+            height: auto; 
+            margin: 1% 1% 1% 1%; 
+            border: 1px solid orange;
+                img {
+                    width: 100%;
+                }          
+        }
+}
+
+.cards {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hide {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .boxHome {
+      width: 90%;
+    }
+
+    .img {
+        width: 32%;
+    }
+
+    .contentBoard {
+        width: 90%;
+    }
+  }

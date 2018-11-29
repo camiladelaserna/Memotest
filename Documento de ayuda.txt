@@ -1,0 +1,88 @@
+Voy a necesitar=
+-ocultar/mostrar muchas cosas
+-3 niveles----cantidad de movimientos
+(cant de movimientos +1, cunado hacemos 
+click en dos piezas distintas)
+-Cada pieza va a ser un objeto.
+pieza {
+img: .png
+Id
+clickeada
+encontrada
+}
+
+como capturo el click?
+con una variable externa con contador 
+adentro de la funcion onclick de cada
+pieza.
+
+var clicks = 0
+var cantMov = 20
+var actualMov = 0
+var paresEncontrados = 0
+var pieza1 = ""
+var pieza2 = ""
+
+$(".pieza").on("click", function(){
+console.log(click)
+clicks++
+if (clicks == 2) {
+	COMPARAR ´CLICK PIEZA 1 
+CON PIEZA CLICK 2
+Y HACER COSAS DEPENDIENDO DE LA COMPARACION
+
+} else if (click == 1) {
+	COMPARAR PIEZA DEL CLICK EN
+ PIEZA 2
+} else {
+	GUARDAR EN PIEZA 1
+clicks = 0
+}
+})
+
+.val o innerHTML para saber el valor de lo que
+clickeo
+
+-----------------------------------
+primero funcion click. empieza en 1
+acordarse de resetear el contador en la func
+
+--------------------------------------------------------------------
+
+left: 50%;
+margin-left: -mitaddelancho;
+
+htlm--- 12 elementos con la imagen tapada, y en un data la imágen detrás.
+
+desde el html creo las 12 imágenes y un data-img en cada una. Una variable para que al cargar la página se carguen en el html
+las imágenes de atrás, de manera random. Desde javascript pongo las otras 12 en un array, con random. Después creo una función donde por
+cada data-img le asigne una imágen del array. Y después un .on("click") a todas las imágenes que diga que cuando haces click en esa imágen
+(con el (this)) en particular, te cambie el estilo de ambas.
+
+var arr = [
+  'https://juan-gallo.com/static/perfil2.jpg',
+  'https://juan-gallo.com/static/perfil2.jpg'
+]
+
+var imgsLength = $('img').length
+
+for (var i = 0; i < imgsLength; i++) {
+  $('img').eq(i).attr('data-img', arr[i])
+}
+
+$('img').on('click', function() {
+  var visible = $(this).attr('data-img')
+  $(this).attr('src', visible)
+})
+
+
+con el .html
+
+-----------------------------------------------------------------
+
+
+vER SI SON IGUALES
+
+SI SON IGUALES, DEJARLAS DADAS VUELTAS
+
+SI NO SON IGUALES, QUE SE VUELVAN A DAR VUELTA EN 2 SEGUNDOS EN EL SEGUNDO CLICK (NECESITO UN CONTADOR y un booleano)
