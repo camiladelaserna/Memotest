@@ -3,17 +3,18 @@
 <head>
   <link href="https://fonts.googleapis.com/css?family=Mali:600|Pacifico" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animate.css">
   <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
   <meta name='viewport' content='width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0' />
   <title>Memotest</title>
 </head>
 <body>
 <!-- Home <-----------------------------------------------------------------     -->
-      <section class="boxHome" >
+      <section class="boxHome animated bounceInDown" >
         <div class="contentHome">
           <h1>Memotest</h1>
           <p>Hola!<i class="em em-raised_hand_with_fingers_splayed"></i>Vamos a jugar al memotest
-            <br/>Pero antes de empezar...<br/>Cuál es tu Nombre<i class="em em-question"></i></p>
+            <br/>Pero antes de empezar...<br/>Cuál es tu Nombre<i class="em em-question animated flash slower"></i></p>
           <input type="text" value="" placeholder="Tu nombre" class="input">
           <p>Con qué dificultad te gustaría jugar?</p>
             <div class="buttonsBox">
@@ -25,7 +26,7 @@
             <div class="buttonsBox">
               <button class="button expert">EXPERTO</button>
             </div>
-              <div class="validation hide">
+              <div class="validation hide animated bounce">
                 <span>UPSS... El nombre es requerido.</span>
             </div>
         </div>

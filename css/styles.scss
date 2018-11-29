@@ -18,6 +18,11 @@ section {
     opacity: 0.5;
 }
 
+.em-question{
+    animation-iteration-count: infinite;
+}
+
+
 .boxHome {
     background-color: $Beige;
     width: 350px;
@@ -72,11 +77,13 @@ section {
 h1 {
     font-family: 'Pacifico', cursive;
     color: $PacificBlue;
+    margin: 2% 0 0 0;
     }
 
 p{
     font-family: 'Mali', cursive;
     font-size: 12px;
+    margin: 2% 0 2% 0;
 }
 
 input {
@@ -103,6 +110,7 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 1%;
     span {
         margin: 4% 1%;
         color: #ff4d4d;
@@ -161,12 +169,7 @@ input {
      width: 45%;
      height: auto;
     }
-    h1 {
-         margin: 0;
-     }
-    p {
-         margin: 0;
-    }
+
 
 .board {
     width: 100%;
@@ -217,3 +220,5 @@ input {
         height: auto;
     }
   }
+
+//   Animations---------------------------------------------------------------------
