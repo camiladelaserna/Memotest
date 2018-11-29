@@ -181,15 +181,15 @@ input {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-        .img {
-            width: 22%;
-            height: auto; 
-            margin: 1% 1% 1% 1%; 
-            border: 1px solid orange;
-                img {
-                    width: 100%;
-                }          
-        }
+}
+.img {
+    width: 22%;
+    height: auto; 
+    margin: 1% 1% 1% 1%; 
+    border: 1px solid orange;
+        img {
+            width: 100%;
+        }          
 }
 
 .cards {
@@ -209,13 +209,13 @@ input {
     box-shadow:         3px 3px 3px 3px #ccc;  
   }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .boxHome {
       width: 90%;
     }
 
     .img {
-        width: 32%;
+        width: 30%;
     }
 
     .contentBoard {

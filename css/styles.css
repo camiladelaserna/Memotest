@@ -167,13 +167,14 @@ input {
   justify-content: center;
   flex-wrap: wrap;
 }
-.board .img {
+
+.img {
   width: 22%;
   height: auto;
   margin: 1% 1% 1% 1%;
   border: 1px solid orange;
 }
-.board .img img {
+.img img {
   width: 100%;
 }
 
@@ -194,13 +195,13 @@ input {
   box-shadow: 3px 3px 3px 3px #ccc;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .boxHome {
     width: 90%;
   }
 
   .img {
-    width: 32%;
+    width: 30%;
   }
 
   .contentBoard {
