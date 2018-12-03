@@ -54,24 +54,29 @@ section {
     align-items: center;
     position: absolute;
     top: 0;
+    padding: 1% 0 1% 0;
     .contentRank {
         text-align: center;
         width: 80%;
     }
-    .rank {
-        border: 1px solid black;
-        margin: 2% 1% 6% 1%;
-        width: 100%;
-        font-family: 'Mali', cursive;
-        font-size: 10px;
-        display: flex;
-        // flex-wrap: wrap;
-        justify-content: space-around;
-        margin: 1% 1% 1% 1%;
-            div {
 
-            }
     }
+
+
+.rank {
+    border: 1px solid black;
+    margin: 2% 1% 6% 1%;
+    width: 100%;
+    font-family: 'Mali', cursive;
+    font-size: 10px;
+    display: flex;
+    justify-content: space-around;
+    margin: 1% 1% 1% 1%;
+}
+
+.rankTitle{
+    border: 1px solid $PacificBlue;
+    padding: 1% 0 1% 0;
 }
 
 h1 {
@@ -86,6 +91,15 @@ p{
     margin: 2% 0 2% 0;
 }
 
+.centerSpan {
+    width: 33%;
+    height: auto;
+    padding-left: 1%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
 input {
     width: 98%;
     border-style: none;
@@ -94,6 +108,10 @@ input {
     font-family: 'Mali', cursive;
     color: grey;
     font-size: 10px;
+}
+
+.replay {
+    margin-bottom: 2%;
 }
 
 .inputClick{
@@ -209,7 +227,33 @@ input {
     box-shadow:         3px 3px 3px 3px #ccc;  
   }
 
-@media (max-width: 800px) {
+
+.spin1 {
+    transform: rotateY(180deg);
+    transition: all 0.3s ease-in-out;
+ }
+
+ .spin2 {
+    transform: rotateY(1080deg);
+    transition: all 1s ease-in-out;
+ }
+
+ .spin3 {
+    transform: rotateY(10080deg);
+    transition: all 5s ease-in-out;
+ }
+
+ .bYn {
+    filter: grayscale(100%);
+ }
+
+ .scroll {
+    overflow-y: scroll;
+    height: 200px;
+ }
+
+
+@media (max-width: 480px) {
     .boxHome {
       width: 90%;
     }
@@ -227,51 +271,3 @@ input {
     }
   }
 
-//   Animations---------------------------------------------------------------------
-
-// /* entire container, keeps perspective */
-// .flipContainer {
-// 	perspective: 1000px;
-// }
-// 	/* flip the pane when hovered */
-// 	// .flipContainer:hover .flipper, .flipContainer.hover .flipper {
-
-//     // }
-//     .flipper{
-//         transform: rotateY(180deg);
-//     }
-
-
-// // .flipContainer .front, .back {
-// // 	width: 320px;
-// // 	height: 480px;
-// // }
-
-// /* flip speed goes here */
-// .flipper {
-// 	transition: 0.6s;
-// 	transform-style: preserve-3d;
-
-// 	// position: relative;
-// }
-
-// /* hide back of pane during swap */
-// .front, .back {
-// 	backface-visibility: hidden;
-
-// 	// position: absolute;
-// 	top: 0;
-// 	left: 0;
-// }
-
-// /* front pane, placed above back */
-// .front {
-// 	z-index: 2;
-// 	/* for firefox 31 */
-// 	transform: rotateY(0deg);
-// }
-
-// /* back, initially hidden pane */
-// .back {
-// 	transform: rotateY(180deg);
-// }

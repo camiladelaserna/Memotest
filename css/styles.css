@@ -48,12 +48,14 @@ section {
   align-items: center;
   position: absolute;
   top: 0;
+  padding: 1% 0 1% 0;
 }
 .boxRank .contentRank {
   text-align: center;
   width: 80%;
 }
-.boxRank .rank {
+
+.rank {
   border: 1px solid black;
   margin: 2% 1% 6% 1%;
   width: 100%;
@@ -63,6 +65,12 @@ section {
   justify-content: space-around;
   margin: 1% 1% 1% 1%;
 }
+
+.rankTitle {
+  border: 1px solid #38ACD5;
+  padding: 1% 0 1% 0;
+}
+
 h1 {
   font-family: "Pacifico", cursive;
   color: #38ACD5;
@@ -75,6 +83,15 @@ p {
   margin: 2% 0 2% 0;
 }
 
+.centerSpan {
+  width: 33%;
+  height: auto;
+  padding-left: 1%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
 input {
   width: 98%;
   border-style: none;
@@ -83,6 +100,10 @@ input {
   font-family: "Mali", cursive;
   color: grey;
   font-size: 10px;
+}
+
+.replay {
+  margin-bottom: 2%;
 }
 
 .inputClick {
@@ -195,7 +216,31 @@ input {
   box-shadow: 3px 3px 3px 3px #ccc;
 }
 
-@media (max-width: 800px) {
+.spin1 {
+  transform: rotateY(180deg);
+  transition: all 0.3s ease-in-out;
+}
+
+.spin2 {
+  transform: rotateY(1080deg);
+  transition: all 1s ease-in-out;
+}
+
+.spin3 {
+  transform: rotateY(10080deg);
+  transition: all 5s ease-in-out;
+}
+
+.bYn {
+  filter: grayscale(100%);
+}
+
+.scroll {
+  overflow-y: scroll;
+  height: 200px;
+}
+
+@media (max-width: 480px) {
   .boxHome {
     width: 90%;
   }

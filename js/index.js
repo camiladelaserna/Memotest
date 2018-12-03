@@ -149,9 +149,8 @@ $(".expert").on("click", function () {
     cantIntents = 9;
     difficulty = "Experto";
     $(".atempts").append(cantIntents)
-    $(".difficulty").append(difficulty)
-  }
-})
+    $(".difficulty").append(difficulty)}
+});
 
 // <------------------------------------------------------------------------
 // <---Setting + pushing ranking -------------------------------------------
@@ -178,18 +177,24 @@ function ranking (){
 
   function rankPush(params) {
     if (won === true) {
-      for (let i = 0; i <= data.length-1; i++) {
+      for (let i = 9; i >= 0 ; i--) {
         $(".rankAppend").append(
           `<div class="rank">
-            <span>${data[i].who}</span>
-            <span>${data[i].level}</span>
-            <span>${data[i].howManyIntents}</span>
+            <div class="centerSpan"><span>${data[i].who}</span></div>
+            <div class="centerSpan"><span>${data[i].level}</span></div>
+            <div class="centerSpan"><span>${data[i].howManyIntents}</span></div>
           </div>`)
       }
     }
   }
 
+  // data.length-1
+
   rankPush()
+
+  // if (data.length > 5) {
+  //   $('.ranking').addClass('scroll')
+  // }
  
 }
 
@@ -197,11 +202,18 @@ function ranking (){
 // <---If you won - lost----------------------------------------------------
 
 function winning() {
-  $(".boxBoard").addClass("opacity")
-  $(".boxRank").removeClass("hide")
-  $(".atemptsWon").append(intents)
-  ranking()  
-}
+
+  $('.front').addClass('spin3')
+    $('.front').removeClass('bYn')
+
+    setTimeout(function() {
+      $(".boxBoard").addClass("opacity")
+      $(".boxRank").removeClass("hide")
+      $(".atemptsWon").append(intents)
+      ranking() 
+      }, 5200)
+
+}; 
 
 // <------------------------------------------------------------------------
 // <---Won - lost-----------------------------------------------------------
@@ -231,6 +243,7 @@ function wonLost(){
 $("img").on("click", clickImg)
 
 function clickImg() {
+  $(this).addClass('spin1');
   for (i = 0; i < cardsArray.length; i++) {
     if (($(this).attr('id') == cardsArray[i].id) && (clicks <= 1)) {
       $(this).attr('src',`${cardsArray[i].src}`)
@@ -244,17 +257,16 @@ function clickImg() {
     } 
   }
 
-  // if ($(this).attr('src','img/tapada.jpg')) {
-  //   $(this).addClass("animated")
-  //   $(this).addClass("flipInY")
-  // }
-
    if (clicks == 2) {
     if(turnedCards[0].src === turnedCards[1].src){
       same = true;
       }
 
      if (same === true) {
+      $(this).addClass('spin2');
+      $("#" + turnedCards[0].id).addClass('spin2');
+      $(this).addClass('bYn');
+      $("#" + turnedCards[0].id).addClass('bYn');
       coincidences++;
       intents++;
       clicks = 0;
@@ -269,11 +281,10 @@ function clickImg() {
       clicks = 0;
       turnedCards.splice(0,turnedCards.length)
       same = false;
-      }, 1500)}
+      }, 1200)}
   }
       wonLost()
      $(".intents").html(intents);
-
 }
 
 // <------------------------------------------------------------------------
@@ -298,8 +309,6 @@ $(".button").on("click", function () {
  $(this).addClass("animated")
  $(this).addClass("pulse")
  $(this).addClass("faster")
-
-
-})
+});
 
 // <------------------------------------------------------------------------
