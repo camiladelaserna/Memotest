@@ -164,6 +164,9 @@ function ranking (){
   }
   var data = localStorage.getItem('winners')
 
+console.log(data);
+
+
   if (data == null){
       data = [];
     } else {
@@ -175,9 +178,9 @@ function ranking (){
       
   localStorage.setItem('winners',JSON.stringify(data))
 
-  function rankPush(params) {
+  function rankAppend(params) {
     if (won === true) {
-      for (let i = 9; i >= 0 ; i--) {
+      for (var i = 0; i <= data.length -1; i++) {
         $(".rankAppend").append(
           `<div class="rank">
             <div class="centerSpan"><span>${data[i].who}</span></div>
@@ -186,15 +189,9 @@ function ranking (){
           </div>`)
       }
     }
-  }
+  };
 
-  // data.length-1
-
-  rankPush()
-
-  // if (data.length > 5) {
-  //   $('.ranking').addClass('scroll')
-  // }
+  rankAppend()
  
 }
 
