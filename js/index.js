@@ -175,12 +175,17 @@ console.log(data);
   }
 
   data.push(winner)
+
+  data.sort(function(winnerA,winnerB){
+    return winnerA.howManyIntents - winnerB.howManyIntents;
+  })
+  data = data.slice(0,8);
       
   localStorage.setItem('winners',JSON.stringify(data))
 
   function rankAppend(params) {
     if (won === true) {
-      for (var i = 0; i <= data.length -1; i++) {
+      for (var i = 0; i <= data.length -1  ; i++) {
         $(".rankAppend").append(
           `<div class="rank">
             <div class="centerSpan"><span>${data[i].who}</span></div>
