@@ -16,6 +16,7 @@ var won = null;
 
 // <------------------------------------------------------------------------
 // <---login + name validation ---------------------------------------------
+
 $('.homeAudio').trigger('play');
 
 $(".button").on("click", function () {
@@ -209,8 +210,9 @@ function ranking (){
 
 function winning() {
 
-  $('.front').addClass('spin3')
-  $('.front').removeClass('bYn')
+  $('img').addClass('spin3')
+  $('img').removeClass('bYn')
+  $('.wonSound').trigger('play');
 
     setTimeout(function() {
       $(".boxBoard").addClass("opacity")
@@ -219,8 +221,14 @@ function winning() {
       $(".atemptsWon").append(intents)
       ranking() 
       }, 5200)
-
 }; 
+
+function loosing (){
+  $(".boxBoard").addClass("opacity")
+  $(".boxLost").removeClass("hide")
+  $('.homeAudio').trigger('play');
+  $(".atemptsWon").append(intents)
+}
 
 // <------------------------------------------------------------------------
 // <---Won - lost-----------------------------------------------------------
@@ -229,20 +237,22 @@ function wonLost(){
   if ((easy === true) && (intents<=18) && (coincidences === 6)) {
     won = true;
     winning();
-  }  else if ((easy === true) && (intents===18) && (coincidences =! 6)) {
+  }  else if ((easy === true) && (intents>18) && (coincidences != 6)) {
     won = false;
+    loosing();
   }  else if ((medium === true) && (intents<=12) && (coincidences === 6)) {
     won = true;
     winning();
-  } else if ((medium === true) && (intents===12) && (coincidences =! 6)) {
+  } else if ((medium === true) && (intents>12) && (coincidences != 6)) {
     won = false;
+    loosing();
   } else if ((expert === true) && (intents<=9) && (coincidences === 6)) {
     won = true;
-    wwinning();
-  } else if ((expert === true) && (intents===9) && (coincidences =! 6)) {
+    winning();
+  } else if ((expert === true) && (intents>9) && (coincidences != 6)) {
     won = false;
-  } else {
-  }
+    loosing();
+  } 
 }
 // <------------------------------------------------------------------------
 // <---Appending cards + coincidences---------------------------------------
@@ -255,7 +265,6 @@ function clickImg() {
   for (i = 0; i < cardsArray.length; i++) {
     if (($(this).attr('id') == cardsArray[i].id) && (clicks <= 1)) {
       $(this).attr('src',`${cardsArray[i].src}`)
-      $(this).addClass("back")
       var card = cardsArray[i]
       turnedCards.push(card)
       clicks++

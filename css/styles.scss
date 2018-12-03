@@ -41,6 +41,26 @@ section {
         }
 }
 
+.boxLost {
+    background-color: $Beige;
+    width: 300px;
+    height: auto;
+    left: 50%;
+    margin: 20px auto 0 -150px;
+    border-radius: 6px;
+    border: 3px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    padding: 1% 0 1% 0;
+    .contentLost {
+        text-align: center;
+        width: 80%;
+    }
+}
+
 .boxRank {
     background-color: $Beige;
     width: 300px;
@@ -234,7 +254,7 @@ input {
  }
 
  .spin2 {
-    transform: rotateY(4000deg);
+    transform: rotateY(4500deg);
     transition: all 1s ease-in-out;
  }
 
@@ -246,12 +266,6 @@ input {
  .bYn {
     filter: grayscale(100%);
  }
-
- .scroll {
-    overflow-y: scroll;
-    height: 200px;
- }
-
 
 @media (max-width: 480px) {
     .boxHome {
