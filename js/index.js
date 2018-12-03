@@ -16,6 +16,7 @@ var won = null;
 
 // <------------------------------------------------------------------------
 // <---login + name validation ---------------------------------------------
+$('.homeAudio').trigger('play');
 
 $(".button").on("click", function () {
   name = $(".input").val()
@@ -23,12 +24,12 @@ $(".button").on("click", function () {
   $(".boxHome").addClass("hide");
   $(".boxBoard").removeClass("hide");
   $(".hi").append(name)
-
+  $('.homeAudio').trigger('pause');
     } else if (name == '') {
       $(".validation").removeClass("hide");
+      $('.errorSound').trigger('play');
  }
 })
-
 
 // <------------------------------------------------------------------------
 // <---input decoration on click--------------------------------------------
@@ -128,8 +129,11 @@ $(".easy").on("click", function () {
     easy = true;
     cantIntents = 18;
     difficulty = "Fácil";
+    $('.buttonSound').trigger('play');
     $(".atempts").append(cantIntents)
     $(".difficulty").append(difficulty)
+  } else if (name == '') {
+    $('.errorSound').trigger('play');
   }
 })
 
@@ -138,6 +142,7 @@ $(".medium").on("click", function () {
     medium = true;
     cantIntents = 12;
     difficulty = "Intermedio";
+    $('.buttonSound').trigger('play');
     $(".atempts").append(cantIntents)
     $(".difficulty").append(difficulty)
   }
@@ -148,6 +153,7 @@ $(".expert").on("click", function () {
     expert = true;
     cantIntents = 9;
     difficulty = "Experto";
+    $('.buttonSound').trigger('play');
     $(".atempts").append(cantIntents)
     $(".difficulty").append(difficulty)}
 });
@@ -163,8 +169,6 @@ function ranking (){
       howManyIntents: intents,
   }
   var data = localStorage.getItem('winners')
-
-console.log(data);
 
 
   if (data == null){
@@ -206,11 +210,12 @@ console.log(data);
 function winning() {
 
   $('.front').addClass('spin3')
-    $('.front').removeClass('bYn')
+  $('.front').removeClass('bYn')
 
     setTimeout(function() {
       $(".boxBoard").addClass("opacity")
       $(".boxRank").removeClass("hide")
+      $('.homeAudio').trigger('play');
       $(".atemptsWon").append(intents)
       ranking() 
       }, 5200)
@@ -245,6 +250,7 @@ function wonLost(){
 $("img").on("click", clickImg)
 
 function clickImg() {
+  $('.flipSound').trigger('play');
   $(this).addClass('spin1');
   for (i = 0; i < cardsArray.length; i++) {
     if (($(this).attr('id') == cardsArray[i].id) && (clicks <= 1)) {
@@ -269,6 +275,7 @@ function clickImg() {
       $("#" + turnedCards[0].id).addClass('spin2');
       $(this).addClass('bYn');
       $("#" + turnedCards[0].id).addClass('bYn');
+      $('.spinSound').trigger('play');
       coincidences++;
       intents++;
       clicks = 0;
