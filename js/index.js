@@ -25,10 +25,13 @@ $('.wooshSound').trigger('play');
 $(".button").on("click", function () {
   name = $(".input").val()
   if (name != '') {
-  $(".boxHome").addClass("hide");
-  $(".boxBoard").removeClass("hide");
-  $(".hi").append(name)
-  $('.homeAudio').trigger('pause');
+    setTimeout(function() {
+      $(".boxHome").addClass("hide");
+      $(".boxBoard").removeClass("hide");
+      $(".hi").append(name)
+      $('.homeAudio').trigger('pause');
+    }, 500)
+
     } else if (name == '') {
       $(".validation").removeClass("hide");
       $('.errorSound').trigger('play');
@@ -210,17 +213,17 @@ if (winner.level == "Experto") {
 dataEasy.sort(function(winnerA,winnerB){
    return winnerA.howManyIntents - winnerB.howManyIntents;
 })
-dataEasy = dataEasy.slice(0,3);
+dataEasy.slice(0,3);
 
 dataMedium.sort(function(winnerA,winnerB){
   return winnerA.howManyIntents - winnerB.howManyIntents;
 })
-dataMedium = dataMedium.slice(0,3);
+dataMedium.slice(0,3);
 
 dataExpert.sort(function(winnerA,winnerB){
   return winnerA.howManyIntents - winnerB.howManyIntents;
 })
-dataExpert = dataExpert.slice(0,3);
+dataExpert.slice(0,3);
       
   localStorage.setItem('winnersEasy',JSON.stringify(dataEasy))
   localStorage.setItem('winnersMedium',JSON.stringify(dataMedium))
@@ -241,12 +244,12 @@ function rankAppendEasy() {
 
 function rankAppendMedium() {
   if ((won === true) && (winner.level == "Intermedio")) {
-    for (var i = 0; i <= dataEasy.length -1  ; i++) {
+    for (var i = 0; i <= dataMedium.length -1  ; i++) {
       $(".rankAppendMedium").append(
         `<div class="rank">
-           <div class="centerSpan"><span>${dataEasy[i].who}</span></div>
-           <div class="centerSpan"><span>${dataEasy[i].level}</span></div>
-           <div class="centerSpan"><span>${dataEasy[i].howManyIntents}</span></div>
+           <div class="centerSpan"><span>${dataMedium[i].who}</span></div>
+           <div class="centerSpan"><span>${dataMedium[i].level}</span></div>
+           <div class="centerSpan"><span>${dataMedium[i].howManyIntents}</span></div>
         </div>`)
     }
   }
@@ -254,12 +257,12 @@ function rankAppendMedium() {
 
 function rankAppendExpert() {
   if ((won === true) && (winner.level == "Experto")) {
-    for (var i = 0; i <= dataEasy.length -1  ; i++) {
+    for (var i = 0; i <= dataExpert.length -1  ; i++) {
       $(".rankAppendExpert").append(
         `<div class="rank">
-           <div class="centerSpan"><span>${dataEasy[i].who}</span></div>
-           <div class="centerSpan"><span>${dataEasy[i].level}</span></div>
-           <div class="centerSpan"><span>${dataEasy[i].howManyIntents}</span></div>
+           <div class="centerSpan"><span>${dataExpert[i].who}</span></div>
+           <div class="centerSpan"><span>${dataExpert[i].level}</span></div>
+           <div class="centerSpan"><span>${dataExpert[i].howManyIntents}</span></div>
         </div>`)
     }
   }

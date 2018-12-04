@@ -247,14 +247,25 @@ input {
 
 footer {
     height: 3%;
-    // position: fixed;
-    // bottom: 1%;
-    // left: 50%;
-    // margin-left: -10.5%;
     display: flex;
     justify-content: center;
     align-items: center;
 
+}
+
+.buttonSound {
+    background-color: $PacificBlue;
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+    border: none;
+    position: absolute;
+    top: 4%;
+    right: 2%;
+        i {
+            font-size: 15pt;
+            color: white;
+        }
 }
 
 .shadow {
