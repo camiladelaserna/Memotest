@@ -11,7 +11,6 @@
 <body>
 <!-- Home <-----------------------------------------------------------------     -->
       <section class="boxHome animated bounceInDown" >
-
         <div class="contentHome">
           <h1>Memotest</h1>
           <p>Hola!<i class="em em-raised_hand_with_fingers_splayed"></i>Vamos a jugar al memotest
@@ -93,7 +92,9 @@
     </div>
     <div class="ranking">
       <div class="rank rankTitle"><div class="centerSpan atemptsColor"><span>NOMBRE</span></div><div class="centerSpan atemptsColor"><span>NIVEL</span></div><div class="centerSpan atemptsColor"><span>INTENTOS</span></div></div>
-      <div class="rankAppend"></div>
+      <div class="rankAppendEasy"></div>
+      <div class="rankAppendMedium"></div>
+      <div class="rankAppendExpert"></div>
     </div>
   </div>
 </section>
@@ -110,25 +111,25 @@
 <!-- ----------------------------------------------------------------------       -->
 <!-- Sounds<-----------------------------------------------------------------     -->
 <audio class="homeAudio">
-  <source src="audio/song.mpeg">
+  <source src="audio/song.mp3">
 </audio>
 <audio autoplay class="wooshSound">
-  <source src="audio/woosh.mpeg">
+  <source src="audio/woosh.mp3">
 </audio>
 <audio class="buttonSound">
-  <source src="audio/button.wav">
+  <source src="audio/button.mp3">
 </audio>
 <audio class="errorSound">
   <source src="audio/error.mp3">
 </audio>
 <audio class="flipSound">
-  <source src="audio/flip.mpeg">
+  <source src="audio/flip.mp3">
 </audio>
 <audio class="spinSound">
-  <source src="audio/spin.mpeg">
+  <source src="audio/spin.mp3">
 </audio>
-<audio class="wonSound">
-  <source src="audio/won.mpeg">
+<audio class="wonSound" loop>
+  <source src="audio/won.mp3">
 </audio>
 <!-- ----------------------------------------------------------------------       -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

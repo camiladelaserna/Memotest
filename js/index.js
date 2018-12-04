@@ -17,7 +17,10 @@ var won = null;
 // <------------------------------------------------------------------------
 // <---login + name validation ---------------------------------------------
 
+$('body').ready('load', function () {
 $('.homeAudio').trigger('play');
+$('.wooshSound').trigger('play');
+});
 
 $(".button").on("click", function () {
   name = $(".input").val()
@@ -169,39 +172,102 @@ function ranking (){
       level: difficulty,
       howManyIntents: intents,
   }
-  var data = localStorage.getItem('winners')
+  var dataEasy = localStorage.getItem('winnersEasy')
+  var dataMedium = localStorage.getItem('winnersMedium')
+  var dataExpert = localStorage.getItem('winnersExpert')
 
 
-  if (data == null){
-      data = [];
-    } else {
+if (dataEasy == null){
+    dataEasy = [];
+} else if (dataEasy != null) {
+  dataEasy = JSON.parse(dataEasy)
+}
 
-    data = JSON.parse(data)
-  }
+if (dataMedium == null){
+  dataMedium = [];
+} else if (dataMedium != null) {
+dataMedium = JSON.parse(dataMedium)
+}
 
-  data.push(winner)
+if (dataExpert == null){
+  dataExpert = [];
+} else if (dataExpert != null) {
+dataExpert = JSON.parse(dataExpert)
+}
+   
+if (winner.level == "Fácil") {
+  dataEasy.push(winner)
+}
 
-  data.sort(function(winnerA,winnerB){
-    return winnerA.howManyIntents - winnerB.howManyIntents;
-  })
-  data = data.slice(0,8);
+if (winner.level == "Intermedio") {
+  dataEasy.push(winner)
+}
+
+if (winner.level == "Experto") {
+  dataEasy.push(winner)
+}
+
+dataEasy.sort(function(winnerA,winnerB){
+   return winnerA.howManyIntents - winnerB.howManyIntents;
+})
+dataEasy = dataEasy.slice(0,3);
+
+dataMedium.sort(function(winnerA,winnerB){
+  return winnerA.howManyIntents - winnerB.howManyIntents;
+})
+dataMedium = dataMedium.slice(0,3);
+
+dataExpert.sort(function(winnerA,winnerB){
+  return winnerA.howManyIntents - winnerB.howManyIntents;
+})
+dataExpert = dataExpert.slice(0,3);
       
-  localStorage.setItem('winners',JSON.stringify(data))
+  localStorage.setItem('winnersEasy',JSON.stringify(dataEasy))
+  localStorage.setItem('winnersMedium',JSON.stringify(dataMedium))
+  localStorage.setItem('winnersExpert',JSON.stringify(dataExpert))
 
-  function rankAppend(params) {
-    if (won === true) {
-      for (var i = 0; i <= data.length -1  ; i++) {
-        $(".rankAppend").append(
-          `<div class="rank">
-            <div class="centerSpan"><span>${data[i].who}</span></div>
-            <div class="centerSpan"><span>${data[i].level}</span></div>
-            <div class="centerSpan"><span>${data[i].howManyIntents}</span></div>
-          </div>`)
-      }
+function rankAppendEasy() {
+  if ((won === true) && (winner.level == "Fácil")) {
+    for (var i = 0; i <= dataEasy.length -1  ; i++) {
+      $(".rankAppendEasy").append(
+        `<div class="rank">
+           <div class="centerSpan"><span>${dataEasy[i].who}</span></div>
+           <div class="centerSpan"><span>${dataEasy[i].level}</span></div>
+           <div class="centerSpan"><span>${dataEasy[i].howManyIntents}</span></div>
+        </div>`)
     }
-  };
+  }
+};
 
-  rankAppend()
+function rankAppendMedium() {
+  if ((won === true) && (winner.level == "Intermedio")) {
+    for (var i = 0; i <= dataEasy.length -1  ; i++) {
+      $(".rankAppendMedium").append(
+        `<div class="rank">
+           <div class="centerSpan"><span>${dataEasy[i].who}</span></div>
+           <div class="centerSpan"><span>${dataEasy[i].level}</span></div>
+           <div class="centerSpan"><span>${dataEasy[i].howManyIntents}</span></div>
+        </div>`)
+    }
+  }
+};
+
+function rankAppendExpert() {
+  if ((won === true) && (winner.level == "Experto")) {
+    for (var i = 0; i <= dataEasy.length -1  ; i++) {
+      $(".rankAppendExpert").append(
+        `<div class="rank">
+           <div class="centerSpan"><span>${dataEasy[i].who}</span></div>
+           <div class="centerSpan"><span>${dataEasy[i].level}</span></div>
+           <div class="centerSpan"><span>${dataEasy[i].howManyIntents}</span></div>
+        </div>`)
+    }
+  }
+};
+
+rankAppendEasy()
+rankAppendMedium()
+rankAppendExpert()
  
 }
 
@@ -210,13 +276,16 @@ function ranking (){
 
 function winning() {
 
+setTimeout(function() {
   $('img').addClass('spin3')
   $('img').removeClass('bYn')
   $('.wonSound').trigger('play');
+}, 1200)
 
     setTimeout(function() {
       $(".boxBoard").addClass("opacity")
       $(".boxRank").removeClass("hide")
+      $('.wonSound').trigger('pause');
       $('.homeAudio').trigger('play');
       $(".atemptsWon").append(intents)
       ranking() 
@@ -296,6 +365,9 @@ function clickImg() {
       setTimeout(function() {
       $(that).attr('src','img/tapada.jpg')
       $("#" + turnedCards[0].id).attr('src','img/tapada.jpg')
+      $(that).addClass('spin1b');
+      $("#" + turnedCards[0].id).addClass('spin1b');
+      $('.flipSound').trigger('play');
       clicks = 0;
       turnedCards.splice(0,turnedCards.length)
       same = false;

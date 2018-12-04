@@ -241,6 +241,11 @@ input {
   transition: all 0.3s ease-in-out;
 }
 
+.spin1b {
+  transform: rotateY(-180deg);
+  transition: all 0.3s ease-in-out;
+}
+
 .spin2 {
   transform: rotateY(4500deg);
   transition: all 1s ease-in-out;
