@@ -100,7 +100,11 @@ h1 {
 p {
   font-family: "Mali", cursive;
   font-size: 12px;
-  margin: 2% 0 2% 0;
+  margin: 1% 0 2% 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 .centerSpan {
@@ -228,6 +232,13 @@ input {
 
 .hide {
   display: none;
+}
+
+footer {
+  height: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .shadow {
