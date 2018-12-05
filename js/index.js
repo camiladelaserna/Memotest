@@ -329,6 +329,10 @@ function wonLost(){
 // <------------------------------------------------------------------------
 // <---Appending cards + coincidences---------------------------------------
 
+var firstClick = [];
+var secondClick = [];
+
+
 $("img").on("click", clickImg)
 
 function clickImg() {
@@ -337,8 +341,11 @@ function clickImg() {
   for (i = 0; i < cardsArray.length; i++) {
     if (($(this).attr('id') == cardsArray[i].id) && (clicks <= 1)) {
       $(this).attr('src',`${cardsArray[i].src}`)
-      var card = cardsArray[i]
+        var card = cardsArray[i]
       turnedCards.push(card)
+      
+    
+
       clicks++
     }  
     if (clicks > 2) {
@@ -347,7 +354,7 @@ function clickImg() {
   }
 
    if (clicks == 2) {
-    if(turnedCards[0].src === turnedCards[1].src){
+    if((turnedCards[0].src === turnedCards[1].src) && (turnedCards[0].id != turnedCards[1].id)){
       same = true;
       }
 
@@ -364,17 +371,20 @@ function clickImg() {
       same = false;
       } else if (same == false) {
       var that = this;
-      intents++
-      setTimeout(function() {
-      $(that).attr('src','img/tapada.jpg')
-      $("#" + turnedCards[0].id).attr('src','img/tapada.jpg')
-      $(that).addClass('spin1b');
-      $("#" + turnedCards[0].id).addClass('spin1b');
-      $('.flipSound').trigger('play');
-      clicks = 0;
-      turnedCards.splice(0,turnedCards.length)
-      same = false;
-      }, 1200)}
+      if ((turnedCards[0].id != turnedCards[1].id)) {
+        intents++
+        setTimeout(function() {
+          $(that).attr('src','img/tapada.jpg')
+          $("#" + turnedCards[0].id).attr('src','img/tapada.jpg')
+          $(that).addClass('spin1b');
+          $("#" + turnedCards[0].id).addClass('spin1b');
+          $('.flipSound').trigger('play');
+          clicks = 0;
+          turnedCards.splice(0,turnedCards.length)
+          same = false;
+          }, 1200)}
+      }
+     
   }
       wonLost()
      $(".intents").html(intents);
